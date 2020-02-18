@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_142416) do
+ActiveRecord::Schema.define(version: 2020_02_18_165646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_142416) do
     t.text "description"
     t.integer "price"
     t.string "location"
-    t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_events_on_admin_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -49,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_142416) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirm_password"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
