@@ -10,7 +10,8 @@
     validate :start_date_condition
     has_many :participations
     has_many :users , through: :participations
-  
+    belongs_to :admin, class_name: "User"
+    
   
     def start_date_condition
       if start_date < DateTime.now
@@ -30,6 +31,10 @@
     else
       errors.add(:price, 'Le prix doit etre compris entre 1 et 1000 euros')
     end
+
+    
+ 
+
   end
   
   
